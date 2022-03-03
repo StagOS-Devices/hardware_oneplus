@@ -117,11 +117,7 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t) {
 }
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, float) {
-<<<<<<< HEAD
-    mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-=======
     mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1); // Fixme! workaround for in-app fod auth
->>>>>>> 5a6112b (hidl: fingerprint: General improvements)
     mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
@@ -168,6 +164,7 @@ Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
 
     mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
 
+    this->isCancelled = 0;
     return Void();
 }
 
